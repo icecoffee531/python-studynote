@@ -1,0 +1,2 @@
+file = open('C:/Users/aline/Desktop/file.txt','w')
+file.write ('hellow world！')
