@@ -1,2 +1,5 @@
-file = open('C:/Users/aline/Desktop/file.txt','w')
-file.write ('hellow world！')
+file = open（'C：/Users/aline/Desktop/file.txt'，'w'）//打开指定路径的文件
+file.write（'hellow world！'）//写下对应的东西
+word ='friends'//字符分片，找出朋友中的恶魔
+find_the_evil_in_your_friends = word[0]+word[2:4]+word[-3:-1]
+print(find_the_evil_in_your_friends)
