@@ -1,5 +1,58 @@
 file = open（'C：/Users/aline/Desktop/file.txt'，'w'）//打开指定路径的文件
 file.write（'hellow world！'）//写下对应的东西
+
 word ='friends'//字符分片，找出朋友中的恶魔
 find_the_evil_in_your_friends = word[0]+word[2:4]+word[-3:-1]
 print(find_the_evil_in_your_friends)
+
+'http://ww1.site.cn/14d2e8ejw1exjogbxdxhj20ci0kuwex.jpg'//分片
+'http://ww1.site.cn/85cc87jw1ex23yhwws5j20jg0szmzk.png'
+'http://ww2.site.cn/185cc87jw1ex23ynr1naj20jg0t60wv.jpg'
+'http://ww3.site.cn/185cc87jw1ex23yyvq29j20jg0t6gp4.gif'
+url = 'http://ww1.site.cn/14d2e8ejw1exjogbxdxhj20ci0kuwex.jpg'
+file_name = url[-10:]
+print(file_name)
+
+search = '168'      //爬取168，打印对应的字节位
+num_a = '1386-168-0006'
+num_b = '1681-222-0006'
+print(search + ' is at '+ str(num_a.find(search)) + ' to ' + str(num_a.find(search) + len(search)) + ' of num_a ')
+print(search + ' is at '+ str(num_b.find(search)) + ' to ' + str(num_b.find(search) + len(search)) + ' of num_b ')
+
+print('{} a word she can get what she {} for.'.format('With','came'))//熟悉.format()的用法
+print('{preposition} a word she can get what she {verb} for.'.format(preposition = 'With',verb = 'came'))
+print('{0} a word she can get what she {1} for.'.format('With','came'))
+
+city = input("write down the name of city:")//利用百度插件完成输入城市
+url = "http://apistore.baidu.com/microservice/weather?citypinyin={}".format(city)
+
+def fahrenheit_converter(C):     //自己定义函数
+    fahrenheit = C * 9/5 + 32    //注意格式主从关系，华氏度计算
+    print(str(fahrenheit) + '°F')
+C2F = fahrenheit_converter(45)
+print(C2F)
+    
+lyric_length = len('I Cry Out For Magic!')//函数len 的运用 计算字符长度
+print(lyric_length)
+
+def gravity_converter(g)://自定义重力转换函数，让g单位的数 变成KG单位
+  gravity = g / 1000
+  return (str(gravity) + ' KG')
+G = gravity_converter(1000)
+print(G)
+
+def Pythagorean_theorem(a,b):   //自定义勾股定理函数
+    third_side = (a**2 + b**2) ** (1/2) //**等价于^
+    return (str(third_side))
+L = Pythagorean_theorem(3,4)
+print("The right triangle third side's length is {}".format(L))
+
+def trapezoid_area(base_up,base_down,height)://传输参数的方式，位置参数和关键字参数
+    return ((base_up + base_down) * height) / 2
+print(trapezoid_area(1,2,3))
+
+def flashlight (battery1,battery2):
+    return 'Light!'
+nanfu1 = 600
+nanfu2 = 600
+flashlight(nanfu1,nanfu2)
