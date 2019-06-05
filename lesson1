@@ -56,3 +56,21 @@ def flashlight (battery1,battery2):
 nanfu1 = 600
 nanfu2 = 600
 flashlight(nanfu1,nanfu2)
+
+//文字过滤器全程序
+def text_creat (name,msg)://TXT创建
+    desktop_path = 'C:/Users/aline/Desktop/'
+    full_path = desktop_path + name + '.txt'
+    file = open(full_path,'w')
+    file.write(msg)
+    file.close()
+    print('Done')
+text_creat('file','i love u')
+
+def text_filter (word,censored_word = 'lame',changed_word = 'Awesome')://过滤文字吧lame换成Awesome
+    return word.replace(censored_word,changed_word)
+
+def text_censored_create(name,msg)://把两个子函数合成一个整体的函数
+    clean_msg = text_filter(msg)
+    text_creat(name,clean_msg)
+text_censored_create('mua','lame')
