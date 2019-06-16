@@ -1,0 +1,73 @@
+1.if分支:
+  if的基本语句结构：if 条件（判断类型）：
+                      语句块（满足条件时运行的）
+                 else：
+                      语句块（不满足条件时运行的）
+  if多分支的语句结构：if 条件1（判断类型）：
+                      语句块（满足条件1时运行的）
+                  elif 条件2 （判断类型）：
+                      语句块（不满足条件1，满足条件2时运行的）
+                  elif 条件3 （判断类型）：
+                      语句块（不满足条件1，2，满足条件3时运行的）（以下同理）
+                  else：
+                      语句块（不满足条件时运行的）
+  if里的条件还可以用逻辑运算符联立判断：（if a>0 and b<0：）其他和上面一样
+2.循环：while，for
+  while循环：
+  基本结构：
+   while 条件：
+       语句块（条件满足就执行，
+               执行完就又回到while后面的条件继续判断，
+               如果条件还满足就继续执行此语句块，
+               否则条件不满足就结束while循环）
+   循环：基本四大要素：条件、循环体（语句块）、改变循环变量的值（使循环不是死循环）、循环变量初始化
+   循环变量初始化
+   while 条件:
+       循环体
+       改变循环变量的值
+   while里面还可以用break、continue两个执行语法
+   break：当循环中遇到break就停止本层循环，继续循环下面的语句（只能用在循环里面）（想当于直接退出整个while循环）
+   continue:结束本次循环，继续下一次的循环（只能用在循环里面）（跳过一次while循环的结果，进行下一次的while循环）
+   也可以用else来让while循环输出，主要是为了书写看上去方便简洁，跟不写else在循环体外面直接输出一个意思
+   
+  for循环：
+    for item in items:
+        取出item里面的数据
+    读取字符串里面的每一个字母（读取完毕后退出for循环，items算是个序列然后依次读取每一个项，然后用对应的项的数据、去做运算、执行语句）
+  range()函数是得到一串连续的数字，eg：range（1，5）就是读取1、2、3、4最右边的5不取
+  for也可以用break、continue、else，用法相同
+  嵌套循环：
+  for里面可以加for也可以加while，同理while也是。
+  然后依次执行第一个for和第二个for
+3.课后习题
+  等腰三角形：
+    cen = int(input("请输入等腰三角形层数："))
+    for i in range(1,cen+1):
+        print(" "*(cen-i),"*"*(2*i-1))
+        
+  n的阶乘：
+    n = int(input("请输入要求阶乘的数："))
+    count = 1
+    factorial = 1
+    while count <= n:
+        factorial *= count
+        count += 1
+    print(factorial)
+    
+  折纸上月球
+  用while循环：
+    thick = 0.088
+    n = 1
+    sum = 0
+    while sum <= 363300*10**6:
+        sum = 2**(n-1)*thick
+        n += 1
+    print(sum)
+    print("所需要折%d次，才能登上月球" %(n-2))
+  用for循环：
+    for n in range(1, 1000):
+        thick = 2**(n-1)*0.088
+        if thick >= 363300*10**6:
+            break
+    print(thick)
+    print("所需要折{}次，才能登上月球".format(n-1))
