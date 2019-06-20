@@ -1,0 +1,67 @@
+#for循环（篮球掉落）                                                      #while循环（篮球掉落）
+n = int(input("请输入篮球落地的高度："))                               
+s = n #定义总长度                                                        
+h = n #定义高度                                                           
+for b in range(1,11):                
+    s += h                                                        
+    h = h/2
+print("第{}次弹跳的高度为{}" .format(b, h))
+print("第{}次弹跳经过的总长度为{}".format(b, s))
+
+#while循环（篮球掉落）
+n = int(input("请输入篮球落地的高度："))                               
+s = n #定义总长度                                                        
+h = n #定义高度        
+count = 0
+while 1:
+    s = s + h
+    h = h/2
+    count += 1
+    if count >= 10:
+        break
+print("第{}次弹跳的高度为{}" .format(count, h))
+print("第{}次弹跳经过的总长度为{}".format(count, s))
+
+#for循环（人口）
+n = int(input("人口："))
+count = 0
+for a in range(1,1000):
+    n = n + n*0.8*0.01
+    count += 1
+    if n >= 26:
+        break
+print("我国现在有%d亿人口"% n)
+print("经过%d年后我国人数增长至26亿人" % count)
+
+#while循环（人口）
+n = int(input("人口："))
+count = 0
+while 1:
+    n = n + n*0.8*0.01
+    count += 1
+    if n >= 26:
+        break
+print("我国现在有%d亿人口"% n)
+print("经过%d年后我国人数增长至26亿人" % count)
+
+#for循环算1的阶乘加到5的阶乘
+n = 5  #定义最高阶乘为5
+s = 1
+s_all = 0
+for a in range(1,6):
+    s = s*a
+    s_all = s_all + s
+print(s_all)
+
+#while循环算1的阶乘加到5的阶乘
+n = 5    #定义最高阶乘为5
+s = 1
+count = 1
+s_all = 0
+while 1 :
+    s *= count
+    s_all += s
+    count += 1
+    if count > n:
+        break
+print(s_all)
