@@ -1,0 +1,93 @@
+1.利润金额
+profit = float(input("请输入利润(万)："))
+if profit<=10:
+    reward = profit*0.1
+elif profit <= 20:
+    reward = (profit - 10)*0.075 + 10*0.1
+elif profit <= 40:
+    reward = (profit-20)*0.05 + 10*0.075 + 10*0.1
+elif profit <= 60:
+    reward = (profit-40)*0.03 + 20*0.05 + 10*0.075 + 10*0.1
+elif profit <= 100:
+    reward = (profit-60)*0.015 + 20*0.03 + 20*0.05 + 10*0.075 + 10*0.1
+else:
+    reward = (profit-100)*0.01 + 40*0.015 + 20*0.03 + 20*0.05 + 10*0.075 + 10*0.1
+print("应发奖金总数：{}".format(reward))
+2.整除
+Int = int(input("请输入一个整数："))
+if Int%5 == 0 and Int%6 == 0:
+    print("能被5和6同时整除")
+elif Int%5 == 0:
+    print("能被5整除")
+elif Int%6 == 0:
+    print("能被6整除")
+else:
+    print("不能被5或6整除")
+3.大小排序
+alist = int(input("请输入一个三位数:"))
+blist = list(str(alist))
+blist.sort()
+print(blist)
+blist.sort(reverse = True)
+print(blist)
+5.薪资总额
+salary = 30000
+salary_all = 0
+profit = 0.06
+for years in range(1,11):
+    salary_all += salary
+    salary = salary + salary*profit
+print("第十年的年薪{}".format(salary))
+print("第十年的总金额{}".format(salary_all))
+6.猴子吃桃子
+n = 1
+for day in range(1,11):
+    n = 2*n + 2
+print("第一天一共摘了：%d个桃子" % n)
+7.汇款税收
+money = float(input("请输入汇款金额(元)："))
+if money<100:
+    Rfee = 1
+elif money<5000:
+    Rfee = money*0.01
+else:
+    Rfee = 50
+print("应收取的汇费为：{}元".format(Rfee))
+8.for,while求1-100可被3整除的数的和
+#while循环
+count = 0
+sum = 0
+while count<100:
+    count += 1
+    if count%3 == 1:
+        count += 1
+        continue
+    sum += count
+    print(count)
+print(sum)
+#for循环
+count = 0
+sum = 0
+for a in range(1,101):
+    count += 1
+    if count % 3 == 1:
+        count += 1
+        continue
+    if count > 100:
+        break
+    sum += count
+    print(count)
+print(sum)
+9.大于两百的最小质数
+for num in range(200,300):
+    for a in range(2,num):
+        if num%a == 0:
+            j = num/a
+            break
+        elif num<203:
+            print("大于两百的最小质数为%d"%num)
+10.倒序排序
+num = int(input("请输入四位整数："))
+alist = list(str(num))
+alist.reverse()
+print(alist)
