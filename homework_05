@@ -27,25 +27,39 @@ else:
 alist = int(input("请输入一个三位数:"))
 blist = list(str(alist))
 blist.sort()
-print(blist)
+print(blist[0]+blist[1]+blist[2])
 blist.sort(reverse = True)
-print(blist)
+print(blist[0]+blist[1]+blist[2])
 4.求不超过五位正整数的位数且依次打印出各个位
 num = int(input("请输入一个不超过五位的正整数:"))
+alist = list(str(num))
 if num/1 < 1:
     print("请输入一个正整数")
 elif num/10000 > 1:
     print("它是一个五位数")
+    print("它的第一位是：{}".format(alist[0]))
+    print("它的第二位是：{}".format(alist[1]))
+    print("它的第三位是：{}".format(alist[2]))
+    print("它的第四位是：{}".format(alist[3]))
+    print("它的第五位是：{}".format(alist[4]))
 elif num/1000 > 1:
     print("它是一个四位数")
+    print("它的第一位是：{}".format(alist[0]))
+    print("它的第二位是：{}".format(alist[1]))
+    print("它的第三位是：{}".format(alist[2]))
+    print("它的第四位是：{}".format(alist[3]))
 elif num/100 > 1:
     print("它是一个三位数")
+    print("它的第一位是：{}".format(alist[0]))
+    print("它的第二位是：{}".format(alist[1]))
+    print("它的第三位是：{}".format(alist[2]))
 elif num/10 > 1:
     print("它是一个两位数")
+    print("它的第一位是：{}".format(alist[0]))
+    print("它的第二位是：{}".format(alist[1]))
 else:
     print("它是一个个位数")
-for a in str(num):
-    print(a)
+    print("它的第一位是：{}".format(alist[0]))    
 5.薪资总额
 salary = 30000
 salary_all = 0
@@ -106,4 +120,4 @@ for num in range(200,300):
 num = int(input("请输入四位整数："))
 alist = list(str(num))
 alist.reverse()
-print(alist)
+print(alist[0]+alist[1]+alist[2]+alist[3])
