@@ -32,7 +32,7 @@
    
   for循环：
     for item in items:
-        取出item里面的数据
+        取出items里面的数据
     读取字符串里面的每一个字母（读取完毕后退出for循环，items算是个序列然后依次读取每一个项，然后用对应的项的数据、去做运算、执行语句）
   range()函数是得到一串连续的数字，eg：range（1，5）就是读取1、2、3、4最右边的5不取
   for也可以用break、continue、else，用法相同
