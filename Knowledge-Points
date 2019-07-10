@@ -190,18 +190,54 @@ for循环：
                     b_dict = dict(a=1,b=2) → {"a":1,"b",2}  #根据给定的键、值创建字典     
                     c_dict = dict.fromkeys(["a","b"]) → {"a":None,"b",None} #以给定内容为键,创建值为空的字典
       字典的读取: 以键作为下标读取字典的值,若键不存在抛出异常
-                    a_dict = {"a":1,"b":1}
+                    a_dict = {"a":1,"b":2}
                  eg:a_dict["a"] → 1
                  使用字典对象的get方法获取指定键对应的值,并且可以在键不存在的时候返回指定值
                  eg:print(a_dict.get("add")) → None
                     print(a_dict.get("add","pupu")) → pupu
                  使用字典对象的items()方法可以返回字典的键,值对列表
                  eg:for item in a_dict.items():
-                        print(item) → ("a",1) ("b",1)
-                        
-                        
-      
-                                        
+                        print(item) → ("a",1) ("b",2)
+                    for key in a_dict: #不加特殊说明,默认输出键
+                        print(key) → a b
+                 使用字典对象的keys()方法可以返回字典的键列表    
+                 eg:print(a_dict.keys()) → dict_keys(["a","b"])
+                 使用字典对象的values()方法可以返回字典的值列表 
+                 eg:print(a_dict.values()) → dict_values([1,2])
+                 使用字典对象的setdefault()方法可以返回指定键对应的值,如果字典中不存在该键,就添加一个元素并设置该键对应的值
+                 eg:a_dict.setdefault("c",3) #增加新元素
+                    print(a_dict.setdefault("c",3)) → 3
+                    print(a_dict) → {"a":1,"b":2,"c":3}
+      字典元素的添加: 1.当以指定键为下标字典赋值时,若键存在,则可以修改该键的值,若不存在,则标识添加一个键,值对.
+                     eg: a_dict["c"] = 4 → {"a":1,"b":2,"c":4}
+                     2.使用字典对象的update方法将另一个字典的键,值对添加到当前字典对象
+                     eg: a_dict.update({"d":5,"e":6}) → {"a":1,"b":2,"c":4,"d":5,"e":6}
+      字典删除: 1.使用del删除整个字典,或者字典中的指定元素
+               2.使用pop()和popitem()方法弹出并删除指定元素 #pop()是指定删除,返回删除键对应的值.popitem()随机删除,返回删除键和值.
+               3.使用clear()方法清空字典中所有元素
+      判断一个key是否在字典中:使用in方法:#也可以用 not in
+                            eg:print("a" in a_dict)
+                               print("a" in a_dict.keys()) #两个返回值都为True
+                            
+      遍历字典:1.遍历key值:eg:for key in a_dict:
+                                 print(key+": {}".format(a_dict[key])) → a:1 b:2 c:4 d:5 e:6
+                             for key in a_dict.keys():
+                                 print(key+": {}".format(a_dict[key])) → a:1 b:2 c:4 d:5 e:6
+              2.遍历value值:eg:for value in a_dict.values():
+                                 print(value) → 1 2 4 5 6
+              3.遍历字典项:eg:for item in a_dict.items():
+                                 print(item) →  ("a":1) ("b":2) ("c":4) ("d":5) ("e":6)
+              4.遍历字典键值:for key,value in a_dict.items()
+                                 print(key,value) → a 1 b 2 c 4 d 5 e 6
+                            for (key,value) in a_dict.items() #和上面完全相同
+                                 print(key,value) → a 1 b 2 c 4 d 5 e 6
+       有序字典:需要导入内置包:collection eg: import collections
+                                            x = collections.OrderedDict()    
+                                            x["a"] = 3 #1
+                                            x["b"] = 4 #2
+                                            x["c"] = 5 #3
+                                            print(x) → OrderedDict([('a', 3), ('b', 4), ('c', 5)])#1#2#3固定顺序
+       字典推导式:表达式:{key_expr:value_expr for value in collection if condition} #结合列表推导式去推导                                    
                                   
                                   
                                   
