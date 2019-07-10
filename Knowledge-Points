@@ -193,7 +193,13 @@ for循环：
                     a_dict = {"a":1,"b":1}
                  eg:a_dict["a"] → 1
                  使用字典对象的get方法获取指定键对应的值,并且可以在键不存在的时候返回指定值
-                 
+                 eg:print(a_dict.get("add")) → None
+                    print(a_dict.get("add","pupu")) → pupu
+                 使用字典对象的items()方法可以返回字典的键,值对列表
+                 eg:for item in a_dict.items():
+                        print(item) → ("a",1) ("b",1)
+                        
+                        
       
                                         
                                   
