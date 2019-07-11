@@ -1,0 +1,56 @@
+1.熟悉输出字符格式化
+  company_name = input("请输入公司名称：")#*****
+  name = input("请输入姓名：")            #***
+  phone_no = input("请输入电话：")        #******2
+  email = input("请输入邮箱：")           #****@163.com
+
+  print("*"*50)
+  print("%s" % company_name)
+  print()
+  print("{}".format(name))
+  print()
+  print('电话：{}'.format(phone_no))
+  print("邮箱：{}".format(email))
+  print("*"*50)
+
+  #打印结果如下
+  #**************************************************
+  #*****
+  #
+  #***
+  #
+  #电话：******2
+  #邮箱：****@163.com
+  #**************************************************
+
+2.熟悉if条件分支的用法
+  score = float(input("小明的考试成绩："))
+  if score == 100:                       #成绩 == 100分，爸爸给他买辆车
+      print("爸爸给他买辆车")            
+  elif score >= 90:                      #成绩 >= 90分，妈妈给他买MP4
+      print("妈妈给他买MP4")              
+  elif score >= 60:                      #90分>成绩>=60分，妈妈给他买本参考书
+      print("妈妈给他买本参考书")
+  else:                                  #成绩<60分，什么都不买
+      print("什么都不买")
+3.棱形 #熟悉for嵌套的用法
+  c = int(input("层数:"))
+  print(" "*((c-1)*2-1),"*")            #打印第一个*
+  for i in range(1,c):                  
+      for j in range(1,c-i):            
+          print(" ",end=" ")            #内循环每循环一次打一个空格
+      print("*", end=" ")               #外循环循环一次打印*
+      for k in range(0,2*i-1):
+          print(" ",end=" ")            #使得中间镂空
+      print("*",end=" ")                
+      print()
+
+  for p in range(1,c-1):
+      for n in range(p):
+          print(" ",end=" ")
+      print("*", end=" ")
+      for m in range(0,(2*(c-1)-1)-2*p):
+          print(" ",end=" ")
+      print("*", end=" ")
+      print()
+  print(" "*(2*(c-1)-1),"*")
