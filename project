@@ -33,19 +33,20 @@
       print("妈妈给他买本参考书")
   else:                                  #成绩<60分，什么都不买
       print("什么都不买")
+      
 3.棱形 #熟悉for嵌套的用法
   c = int(input("层数:"))
   print(" "*((c-1)*2-1),"*")            #打印第一个*
   for i in range(1,c):                  
       for j in range(1,c-i):            
           print(" ",end=" ")            #内循环每循环一次打一个空格
-      print("*", end=" ")               #外循环循环一次打印*
+      print("*", end=" ")               #第一次内循环结束后打印*
       for k in range(0,2*i-1):
           print(" ",end=" ")            #使得中间镂空
-      print("*",end=" ")                
-      print()
+      print("*",end=" ")                #第二次内循环结束后打印*
+      print()                           #换行
 
-  for p in range(1,c-1):
+  for p in range(1,c-1):                #让上面的从下往上打印
       for n in range(p):
           print(" ",end=" ")
       print("*", end=" ")
@@ -54,3 +55,12 @@
       print("*", end=" ")
       print()
   print(" "*(2*(c-1)-1),"*")
+
+4.  n的阶乘：
+    n = int(input("请输入要求阶乘的数："))
+    count = 1
+    factorial = 1
+    while count <= n:
+        factorial *= count
+        count += 1
+    print(factorial)
