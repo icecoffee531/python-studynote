@@ -238,7 +238,22 @@ for循环：
                                             x["c"] = 5 #3
                                             print(x) → OrderedDict([('a', 3), ('b', 4), ('c', 5)])#1#2#3固定顺序
        字典推导式:表达式:{key_expr:value_expr for value in collection if condition} #结合列表推导式去推导                                    
-                                  
+集合: 无序可变的序列,使用一对大括号界定,元素不可重复,集合内元素是唯一的,集合中只能包含数字,字符串,元组等不可变类型的数据,不能包含
+      列表,字典,集合等可变序列;
+      集合的创建:eg:a_set = {}#创建空的集合 a_set.add(1) → a_set={1} #add方法如果集合里有所添加的值,则什么都不改变
+                   也可以用set()函数来创建集合,b_set = set()         #创建一个空集合,括号里写其他类型的数据都可以转换为集合,自动消重
+      集合的删除:del直接删除整个集合,pop()先对集合从小到大排序再删除首位置的元素,remove()直接删除指定的元素,clear()清空集合
+      集合的添加:add()#如上,update()#直接添加一个集合给之前的集合,消重,排序.#上面的删除和添加的方法均为原地操作
+      集合的操作:a_set|b_set #并集也可以写成a_set.union(b_set)
+                a_set&b_set #交集也可以写成a_set.intersection(b_set)
+                a_set-b_set #差集也可以写成a_set.difference(b_set)
+                .issubset() #测试是否为子集
+                >,<可以比较集合的包含关系
+     集合推导式:eg:s = {x.strip() for x in (" he"," she ","i ")}
+                  print(s) → {"i","she","he"}
+                  
+
+     
                                   
                                   
           
