@@ -296,7 +296,51 @@ for循环：
                                      eg: li = [-21,-12,5,9,36]
                                          print(sorted(li,key = lambda x:abs(x))) → keys 排序结果 #[5,9,12,21,36] 
                                                                                         最终结果 → [5,9,-12,-21,36]
-               函数式编程:                                                                                          
+               函数式编程: 是一种编程范式; 我们常见的编程范式有: 命令式编程,函数式编程,常见的面对对象编程也是一种命令式;
+                          函数式编程相当于用一个个函数完成一段编程;
+                          eg: 把number = [2,-5,9,-7,2,5,4,-1,0,-3,8]中的正数求平均值;
+                             命令式编程: number = [2,-5,9,-7,2,5,4,-1,0,-3,8]
+                                        count= 0
+                                        sum = 0
+                                        for i in range(len(number))
+                                            if number[i]>0:
+                                                count += 1
+                                                sum += number[i]
+                                        print sum,count
+                                        
+                                        if count>0:
+                                            average = sum/count
+                                        print (average)
+                                        
+                             函数式编程: number = [2,-5,9,-7,2,5,4,-1,0,-3,8]
+                                        from fuctools import reduce
+                                        positive = filter(lambda x: x>0, number)
+                                        average  = reduce(lambda x,y: x+y, positive)/len(positive)
+                                        
+                                        print (average)
+                             
+                             差别一目了然,函数式编程更加简洁,易懂
+
+               将函数存储在模块中: 方法: 1.导入整个模块 import + 存储模块的文件名 #模块文件名必须和导入文件放在同一个包内
+                                       2.导入特定的函数 from + 存储模块的文件名 + import + 模块内的函数名(可以导入多个,用逗号隔开)
+                                       3.为导入的特定函数赋予新的名字 from + 存储模块的文件名 + import + 模块内的函数名 + as + 新名称
+                                       4.导入模块内所有的函数 from + 存储模块的文件名 + import + * 
+               
+               函数文档字符串: 给函数写说明#用"""三引号标注:eg:def text(msg):
+                                                            """
+                                                                函数名: text
+                                                                功能: 测试
+                                                                参数: 无
+                                                                返回值:无
+                                                            """
+                                                                print("函数输出成功" + msg)
+                                                            text("hello")
+                                                            print(help(test))#在交互模式下可以使用help查看函数说明,该界面会调到说明界面,需要
+                                                                              输入q退出
+                                                            print(test.__doc__)#使用.__doc__属性查看,说明直接显示在交互界面上
+   
+                                        
+                                            
                                          
                                          
                          
