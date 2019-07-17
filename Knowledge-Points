@@ -338,11 +338,75 @@ for循环：
                                                             print(help(test))#在交互模式下可以使用help查看函数说明,该界面会调到说明界面,需要
                                                                               输入q退出
                                                             print(test.__doc__)#使用.__doc__属性查看,说明直接显示在交互界面上
-   
-                                        
-                                            
-                                         
-                                         
+                                                            
+面对对象: 类和对象; 万物皆可对象;
+         类是一个抽象的概念,是个模板,比如:"人"所有的人都能规定在"人"这个类里面;
+         对象是一个你能够看得到,摸得着的实体:如"人"类中的某一个个体,例如"你自己";
+         对象的属性: 对象具有的特征,比如你的名字,长相,年龄,性别等等;
+         对象的行为: 对象执行的操作,比如你去睡觉,买东西,吃饭等等;
+         类的定义:class A: #A是类名
+                     #给类的每一个对象加初始属性
+                     #self的含义:外部对象调用的自身的参数
+                     def __init__(self,name):   #初始化方法,这个函数下面写的都为初始化的内容,也可以外部加参数,例如这里加的name
+                         self.count = 0         #意思是 count的初始值是0 定义后后面都可以直接使用它
+                         self.name = name       #意思是初始的name为外部输入的name
+                     #类中对象的行为
+                     def eat(self):             #这里面也可以加多的参数,不过self必须加
+                         self.count += 1           #调用self.count且改变它的值
+                         print("%s吃东西"%self.name)#调用了对象初始属性中的name
+                     
+                     def __str__(self):
+                         return str(self.count) #只能返回str格式的参数
+                     
+                 a = A("Tom")   #调用类A,a对应self,"Tom"对应name;__init__方法不用调用可以直接使用,a为实例对象
+                 a.eat()        #调用eat方法,类中函数的调用用实例对象.函数就好了
+                 print(a)       #输出__str__中的返回值 如果不写__str__方法的话a的返回值会返回<__main__.A object at 0x000001E6687E7080>
+                                 用__str__方法的话,可以直接写print(a)因为__str__方法也不需要调用
+          
+          面对对象的好处:和直接在模块中写函数,在类中写包装性更好,主体直接调用就好了,可变性也比较强,易于修改;
+                        拿公司老板和员工做例子就是:
+                        外部调用代码好比老板面向过程中函数好比员工，让员工完成-一个任务，需要老板不断的干涉，大大影响了老板的工作效率。
+                        面向对象中对象好比员工，让员工完成一个任务，老板只要下命令即可，员工可以独挡一面，大大节省了老板的时间。        
+          
+          私有属性: 只能在对象的内部被使用,不能被外部访问到;定义属性名或者方法前增加两个下划线__就能定义一个私有属性;
+                   实际开发中私有属性也不是一层不变的,有专门的方法可以让外部能够操作私有属性:
+                   自定义get,set方法提供私有属性的访问:
+                   eg:class Person:
+                          def __init__(self,name,age):
+                              self.name = name
+                              self.__age = age
+                          
+                          #定义对私有属性的get方法,获取私有属性
+                          def getAge(self):
+                              return self.__age
+                              
+                          #定义对私有属性的set方法,对私有属性重新赋值
+                          def setAge(self,age):
+                              self.__age = age
+                              
+                      person1 = Person("Tom",19)
+                      person1.setAge(20)
+                      print(person1.name,person1.setAge()) #Tom 20
+                      
+                  使用property标注提供私有属性的访问
+                  eg:class Person:
+                          def __init__(self,name,age):
+                              self.name = name
+                              self.__age = age
+
+                          @property                    #@property下面默认跟的是get方法,如果设置成set会报错
+                          def age(self):
+                              return self.__age
+                          
+                          @age.setter                  #使用上面函数名.setter,不是property.setter
+                          def age(self,age):
+                              self.__age = age
+                      
+                      #用了标注提供访问后,改变的时候可以直接.函数名不用加括号
+                      person1 = Person("Tom",19)
+                      person1.age = 20
+                      print(person1.name,person1.age) #Tom 20
+                      
                          
       
       
