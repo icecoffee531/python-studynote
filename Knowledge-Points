@@ -424,7 +424,27 @@ for循环：
                  方法进行调用;
            
            __new__方法:主要的作用:1.在内存中为对象分配空间 2.返回对象的引用(即对象的内存地址)
+                       如果写了__new__方法就必须return super().__new__(cls)不然后面的__init__不会执行
+                       一般使用系统object中的__new__方法,不自己去定义;单例模式的时候会使用到__new__方法
            
+           object: 隐式父类,里面有__new__方法,且调用的时候默认调用,不用加super;
+           
+           单例模式: 不管创建多少个实例对象,都指向一个内存地址
+                     eg:class A(object):
+                                 _instance = None
+                                 def __new__(cls,*args,**kwargs):
+                                     if A._instance == None:
+                                          A._instance = super().__new__(cls)
+                                     return A._instance
+                        a1 = A()
+                        print(id(a1))
+                        a2 = A()
+                        print(id(a2)) #id相同
+                        
+变量: 可变变量: 列表list,字典dict,自定义类型(class定义的类型)
+      不可变变量: 数字类型,字符串str,元组tuple
+
+
            
            
         
