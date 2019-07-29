@@ -444,7 +444,72 @@ for循环：
 变量: 可变变量: 列表list,字典dict,自定义类型(class定义的类型)
       不可变变量: 数字类型,字符串str,元组tuple
 
+异常处理: 异常: 程序运行时,如果Python解释器遇到一个错误,会停止程序的运行,并且提示错误信息;
+               #程序停止执行并且提示错误信息的这个动作,我们通常称之为:抛出(raise)异常
+         捕获异常: 如果不能确定某些代码的执行不能确定是否正确,可以增加try(尝试)来捕获异常;
+                  #eg:try:
+                          #尝试执行的代码
+                      except:
+                          #出现错误的处理
+         错误类型的捕获: 在程序执行时,可能会遇到不同类型的异常,并且需要根据不同的异常,做出不同的响应,就要用到捕获错误类型了;
+                        语法:try:
+                                 #尝试执行的代码
+                             except 错误类型1:
+                                 #针对错误类型1,对应的代码处理
+                             except (错误类型2,错误类型3):
+                                 #针对错误类型2和3,对应的代码处理
+                             except Exception as result:
+                                 print("未知错误%s" % result)
+         完整的捕获异常代码语法:try:
+                                 #尝试执行的代码
+                             except 错误类型1:
+                                 #针对错误类型1,对应的代码处理
+                             except (错误类型2,错误类型3):
+                                 #针对错误类型2和3,对应的代码处理
+                             except Exception as result:
+                                 print("未知错误%s" % result)
+                             else:
+                                 #没有异常才会执行的代码
+                             finally:
+                                 #无论是否有异常,都会执行的代码
+         抛出raise异常: 在开发中,除了代码执行出错Python解释器会抛出异常之外,还可以根据应用程序特有的业务需求主动抛出异常;
+                       eg: def input_password():
+                                 #1.提示用户输入密码
+                                 pwd = input("请输入密码: ")
+                                 #2.判断密码长度,如果长度>=8,返回用户输入的密码
+                                 if len(pwd) >= 8:
+                                     return pwd
+                                 #3.密码长度不够,需要抛出异常
+                                 #4.创建异常对象,使用异常的错误信息字符串作为参数
+                                 ex = Exception("密码长度不够")
+                                 #5.抛出异常对象
+                                 raise ex
+                            try:
+                                 user_pwd = input_password()
+                                 print(user_pwd)
+                            except Exception as result:
+                                 print("发现错误: %s"% result)
+           自定义异常: 自己定义的异常类,对异常进行分门别类管理,自定义异常需要继承父类异常Exception一个例子
+                      eg: class MyException(Exception):
+                                 def __init__(self,name,age):
+                                      self.name = name
+                                      self.age = age
+                          try:
+                                 #主动抛出异常,就是实例化一个异常
+                                 raise MyException("xxx",18)                 #实例化一个异常,实例化的时候需要传参数
+                          except MyException as obj:                         #体现一个封装
+                                 print(obj.age,obj.name)                     #这里捕获的就是MyException类携带过来的信息
+                          
+                          except Exception as obj:                           #万能捕获,之前可能捕获不到,这里添加Exception作为保障
+                                 print(obj)
 
+文件:文件的概念和作用: 计算机的文件,就是储存在硬盘的数据
+     文件的储存方式: 在计算机中,文件是以二进制的方式保存在磁盘上的
+     文本文件: 可以使用文本编辑器查看,本质上时二进制文件;eg: python的源程序
+     二进制文件: 不可以使用文本编辑器查看,保存的内容不是给人直接阅读的,而是提供给其他软件使用的;eg: 图片文件,音频文件,视频文件等
+
+                           
+           
            
            
         
