@@ -527,8 +527,59 @@ for循环：
                         r+: 以读写的方式打开文件,文件指针会放在文件开头,如果文件,不存在抛出异常;
                         w+: 以读写的方式打开文件,如果文件存在则覆盖,不存在就创建新文件;
                         a+: 以读写的方式打开文件,如果文件存在,文件指针将会放在文件的结尾,如果不存在就创建新文件;
-                        rb,rb+,wb,wb+,ab,
-                
+                        rb,rb+,wb,wb+,ab,ab+: 读二进制文件
+                        rt,rt+,wt,wt+,at,at+: 读文本文件 等价于r,r+,w,w+,a,a+
+                        可以用for遍历枚举的方法添加行号
+
+常用模块:1.时间处理模块: time.time()获取当前的时间的时间戳(1970纪元后经过的浮点秒数)#需要导入time模块
+                       time模块侧重于时间戳的处理,所以出现了datetime模块,相当于time的高级封装,提供了
+                       更多关于日期处理的方法,且更直观,方便;
+                       datetime的五个主要模块:1.datetime.date: 表示日期的类,常用属性:year,month,day
+                                             2.datetime.time: 表示时间的类,常用属性:hour,minute,second,microsencond
+                                             3.datetime.datetime: 表示日期+时间
+                                             4.datetime.timedelta: 表示时间间隔,两个时间点的长度,常用来做时间的加减
+                                             5.datetime.tzinfo: 与时区有关的相关信息
+                       ps: datetime中用的最多的是datetime.datetime模块,datetime.timedelta模块常用来修改时间
+                       datetime.datetime中year,month,day是必须参数
+                       datetime的类方法: datetime.datetime.today() #获取今天的时间
+                                         datetime.datetime.now()   #获取现在的时间
+                                         datetime.datetime.fromtimestamp()   #括号里写时间戳,用时间戳来生成对应的日期时间
+                                         datetime.datetime.now().timestamp() #现在日期改成时间戳,其他同理
+                                         datetime.datetime.now().weekday()   #获取现在对应的星期号,其他同理
+                                         datetime.datetime.now()+datetime.timedelta(weeks= 3) #三周后,用datetime.timedelta改变
+                                         时间,最大单位是weeks,最小是seconds
+                                         strftime(): 把datetime转换成字符串,是datetime对象的实例方法;格式如下:
+                                         datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                                         strptime(): 把字符串转换成datetime格式;格式如下:
+                                         datetime.datetime.strptime('2019-07-30 19:46:36','%Y-%m-%d %H:%M:%S')#必须有两个参数
+                                         所有的格式化符号:
+                                         %y 两位数的年份表示(00-99)
+                                         %Y 四位数的年份表示(000-9999)
+                                         %m 月份(01-12)
+                                         %d 月内的一天(0-31)
+                                         %H 24小时制小时数(0-23)
+                                         %I 12小时制小时数(1-12)
+                                         %M 分钟数(00-59)
+                                         %S 秒数(00-59)
+                                         %a 本地简化的星期名称(Mon-Fri)
+                                         %A 本地完整的星期名称(Monday-Friday)
+                                         %b 本地简化的月份名称(Jan-Dec)
+                                         %B 本地完整的月份名称(January-December)
+                                         %c 本地相应的日期表示和时间表示
+                                         %j 年内的一天(001-366)
+                                         %p 本地A.M.或P.M.的等价符
+                                         %U 一年中的星期数(00-53)星期天为星期的开始
+                                         %w 星期(0-6),星期天为星期的开始
+                                         %W 一年中的星期数(00-53)星期一为星期的开始
+                                         %x 本地相应的日期表示
+                                         %X 本地相应的时间表示
+                                         %Z 当前时区的名称
+                                         %% %本身
+        
+        2.目录操作模块: 1.获取当前工作目录     #导入模块sys 格式: sys.path[0]
+                       2.获取执行命令的位置   #导入模块os  格式: os.getcwd()
+                       3.路径拼接            #格式: os.path.join("/Users/pangao/text.txt")
+                       4.路径拆分            #格式: os.path.split("/Users/pangao/text.txt")   
      
                            
            
