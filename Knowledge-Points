@@ -578,8 +578,14 @@ for循环：
         
         2.目录操作模块: 1.获取当前工作目录     #导入模块sys 格式: sys.path[0]
                        2.获取执行命令的位置   #导入模块os  格式: os.getcwd()
-                       3.路径拼接            #格式: os.path.join("/Users/pangao/text.txt")
-                       4.路径拆分            #格式: os.path.split("/Users/pangao/text.txt")   
+                       3.路径拼接            #导入模块os  格式: os.path.join("/Users/pangao/text.txt")
+                       4.路径拆分            #导入模块os  格式: os.path.split("/Users/pangao/text.txt")
+                                                         os.path.splitext("/Users/pangao/text.txt")#直接获取文件拓展名
+                                                         #合并和拆分不会检测路径是否存在,仅仅对字符串做操作
+                       5.文件重命名          #导入模块os  格式: os.rename("test.txt","test.py")
+                       6.删除文件            #导入模块os  格式: os.remove("test.txt")
+                       7.复制文件            #导入模块shutil 格式:shutil.copyfile("test.txt","test.py")
+                       8.遍历文件夹内的文件   #导入模块os  格式: 
      
                            
            
