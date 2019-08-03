@@ -626,6 +626,16 @@ for循环：
                            4) namedtuple(用于创建具有命名字段的元组子类的工厂函数)
                            
                            5) orderedDict(记录输入顺序的字典)
+                              格式: from collections import OrderedDict
+                              #导入包后 字典顺序按照写的顺序固定排序
+                              eg: from collections import OrderedDict
+                                  d = {}
+                                  d["a"] = 1
+                                  d["b"] = 2
+                                  d["c"] = 3
+                                  d["d"] = 4
+                                  print(d)  → OrderedDict([("a",1),("b",2),("c",3),("d",4)])
+                              
            
            
            
