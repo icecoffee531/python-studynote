@@ -585,9 +585,47 @@ for循环：
                        5.文件重命名          #导入模块os  格式: os.rename("test.txt","test.py")
                        6.删除文件            #导入模块os  格式: os.remove("test.txt")
                        7.复制文件            #导入模块shutil 格式:shutil.copyfile("test.txt","test.py")
-                       8.遍历文件夹内的文件   #导入模块os  格式: 
-     
+                       8.遍历文件夹内的文件   1. #导入模块os   格式: for filename in os.listdir("./"):#获取当前目录下的文件和文件夹
+                                                                    print (filename)
+                                                                    
+                                            2. #导入模块glob 格式: for filename in glob.glob("*.py"):#可以设置文件过滤
+                                                                     print(filename)
+                                                                     
+                                            3. #导入模块os   格式: for fpathe,dirs,fs in os.walk("./"):#可以访问子文件夹
+                                                                      print(fpathe)
+                                                                      print(dirs)
+                                                                      print(fs)
+                                                                      for f in fs:
+                                                                             print(os.path.join(fpathe,f))
+                                                                             
+        3.随机数模块:  1) 随机小数
+                         random.random() #获取大于0且小于1 之间的小数
+                         random.uniform(a,b) #获取大于等于a小于等于b的小数,如果a > b则取值取大于等于b小于等于a的小数
+                      2) 随机整数
+                         random.randint(a,b) #获取a到b之间的整数包括a,b
+                         random.randrange(a,b) #获取a到b之间的整数不包括b
+                         random.randrange(a,b,2) #获取a到b之间的奇数不包括b
+                      3) 随机选择一个返回值
+                         random.choice([1,"23",[4,5]]) # 返回1或者"23"或者[4,5]
+                      4) 随机选择多个返回值,返回的个数为函数的第二个参数
+                         random.sample([1,"23",[4,5]],2) # 返回列表元素任意2个组合作为一个列表
+                      5) 打乱顺序排序
+                         random.shuffle(list)  #打乱列表list中的元素顺序  
+                                                                      
+        4.Collections模块: 1) defaultdict(#dict子类调用工厂函数来提供缺失值)
+                              作用: 创建查询不到key值的时候不会报错的dict
+                              格式: person = defaultdict(lambda : "Key Not Found")#相当于给字典所有键一个默认值
+                                                                                  #括号里也可以是列表等等
+                           2) counter(#给对象计数)
+                              格式: Counter()#括号内一般写list,tuple可具有重复元素的数据
+                              
+                           3) deque(#类似于列表的容器,可以从两端操作)
+                              格式: 添加了.appendleft(),.popleft(),.extendleft()方法,可以从左端填入
+                                    还有 maxlen=9 列表内最大长度9
+                                    
+                           4) namedtuple(用于创建具有命名字段的元组子类的工厂函数)
                            
+                           5) orderedDict(记录输入顺序的字典)
            
            
            
