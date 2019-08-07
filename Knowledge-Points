@@ -227,7 +227,7 @@ for循环：
                                  print(value) → 1 2 4 5 6
               3.遍历字典项:eg:for item in a_dict.items():
                                  print(item) →  ("a":1) ("b":2) ("c":4) ("d":5) ("e":6)
-              4.遍历字典键值:for key,value in a_dict.items()
+              4.遍历字典键,值:for key,value in a_dict.items()
                                  print(key,value) → a 1 b 2 c 4 d 5 e 6
                             for (key,value) in a_dict.items() #和上面完全相同
                                  print(key,value) → a 1 b 2 c 4 d 5 e 6
