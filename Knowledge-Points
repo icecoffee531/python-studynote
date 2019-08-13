@@ -635,8 +635,27 @@ for循环：
                                   d["c"] = 3
                                   d["d"] = 4
                                   print(d)  → OrderedDict([("a",1),("b",2),("c",3),("d",4)])
-                              
-           
+         5.pickle模块:python对象的序列化和反序列化;
+                 特点:1.只能在python中使用,只支持python的基本数据类型;2.可以处理复杂的序列化语法.(eg:自定义的类的方法,游戏的存档等)
+                 一.内存中操作: dumps方法将对象传成字节(序列化)loads方法将字节还原为对象(反序列化)
+                 eg:import pickle
+                    #dumps
+                    li = [11,22,33]
+                    r = pickle.dumps(li)
+                    print(r)
+                    
+                    #loads
+                    result = pickle.loads(r)
+                    print(result)
+                 二.文件中操作:
+                 eg:#dump
+                    import pickle
+                    li = [11,22,33]
+                    pickle.dump(li,open('db','wb'))
+                    
+                    #load
+                    ret = pickle.load(open('db','rb'))
+                    print(ret)
            
            
         
