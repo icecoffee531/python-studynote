@@ -1,0 +1,129 @@
+1.JavaScript的执行原理：当客户端向服务器端请求某个页面时，服务器端将整个页面中包含JavaScript的脚本代码作为响应内容，
+                       发送回客户端机器，客户端浏览器根据发回的网页文件从上往下逐行读取并解析其中的html或者脚本代码
+2.JavaScript脚本代码是从服务器端下载到客户端，然后在客户端执行，它不占用服务器端的CPU等资源。因此，通过在客户端执行
+  脚本代码，分担了服务器的任务，从而间接地提升了Web服务器的性能。
+3.JavaScript组成:
+              1.ECMAScript：JavaScript语法核心。
+              2.DOM：文档对象模型（Document Object Model），提供访问和操作网页内容的方法和接口。
+              3.BOM：浏览器对象模型（Browser Object Model），提供与浏览器交互的方法和接口。
+4.JavaScript脚本代码位置: 
+              1.放置在<script></script>标签对之间。
+                eg:<script type="text/javascript">
+                    document.write("<h2>欢迎进入JavaScript世界</h2>");
+                   </script>#输出"欢迎进入JavaScript世界"
+              2.将JavaScript代码放置在一个单独的文件中,创建一个js文件,然后再script标签中用src去读取
+                eg:<script src="demo1.js" type="text/javascript"></script>
+                #带有src属性的<script>标签，不应该在<script>和</script>标签之间再度包含额外的JavaScript代码。
+                 如果包含了嵌入的代码，则只会下载并执行外部脚本文件，嵌入的代码会被忽略。
+              3.将脚本程序代码作为属性值
+                eg:<a href="javascript:document.write('<h2>欢迎进入JavaScript世界</h2>');">hello</a>
+                这里当作了a标签中的属性
+
+5.变量
+      1. 先声明变量再赋值
+         var是声明变量的关键字。给变量命名时，要遵守如下规则：
+        （1）第一个字符必须是一个字母、下划线（_）或一个美元符号$。
+        （2）后面的字符可以是字母、下划线、美元符号或数字。
+        （3）区分大小写。
+        （4）不能与关键字同名 ，如while、for和if等。
+      2.同时声明和赋值变量
+        eg:var message=”hi”;
+           var width=34,height=31;
+           var name,age=23; //这里name只是声明,没有赋值
+      3.不声明直接赋值
+        eg:message=”hi”;//这种方法很容易出错，不推荐使用。
+      总结:JavaScript的变量是采用弱类型的形式，即声明变量时不必确定类型，而是在使用或赋值时自动确定其数据类型
+
+6.数据类型
+  基本数据类型: undefined、null、boolean、number、string
+  复杂数据类型: object
+  typeof操作符: 用来查询变量的数据类型的.eg:var message = "hi";
+                                          document.write(typeof message); //string
+  1.undefined: 对未初始化的变量及未声明的变量使用typeof运算符均会返回undefined.
+    eg:var name; 
+       document.write(typeof name);  //undefined 
+       document.write(typeof address);  //undefined 
+  2.null: null是空类型，表示一个变量已经有值，但值为空对象，使用typeof检测时会返回object。
+    eg:var obj=null;
+       document.write(typeof obj); //object
+  3.boolean: boolean是布尔类型，也称真假类型。这个类型有两个标准值：true(真)和false(假)。布尔值用来表示一个逻辑表达式的结果，通常用做判断处理。
+    eg:var flag=1<2;
+       document.write(typeof flag); //boolean
+  4.number: 在c#语言中,小数和整数会被分别存储在不同的类型中。但在JavaScript中，整数、小数都是number。
+    eg:var num1=12,num2=12.3;
+       document.write(typeof num1);//number
+       document.write(typeof num2);//number
+  5.string: string是字符串类型，这是程序中使用最广的一种类型。字符串是使用单引号或双引号引起来的若干字符。
+    eg:var myName='Cidy';
+       document.write(typeof myName);//string
+       
+7.运算符
+  运算符号是一种特殊的符号，一般由1~3个字符组成，用于实现数据之间的运算、赋值和比较。
+  算术运算符: +(加)、-(减)、*(乘)、/(除)、++(累加1)、--(累减1)
+  赋值运算符: =
+  比较运算符: >、<、>=、<=、==、!= 
+  逻辑运算符: &&(and)、||(or)、!(not)
+
+8.JavaScript的流程控制语句
+ （1）顺序结构: 顺序结构就是程序按照语句出现的先后顺序依次执行，这是所有程序的最基本结构，一般程序中的大部分代码采用的都是顺序结构。
+ （2）选择结构: 在编写一个程序时，通常需要根据特定的条件执行不同的语句，JavaScript中用选择结构来达到这种需求，if语句是使用最为普遍
+               的条件选择语句，if语句有多种形式：单分支、双分支和多分支
+               if单分支的语法结构如下: if(条件表达式) {
+                                        语句或语句块
+                                     }
+               if双分支的语法结构如下: if(条件表达式) {
+                                        语句或语句块1
+                                     } else{
+                                        语句或语句块2
+                                     }
+               if多分支的语法结构如下: if(条件表达式1){
+                                        语句或语句块1
+                                     } else if(条件表达式2){
+                                        语句或语句块2
+                                     }......
+                                     else if(条件表达式n){
+                                        语句或语句块n
+                                     }else{
+                                        语句或语句块n+1
+                                     }
+
+               switch的语法结构如下: switch（表达式）{
+                                    case 取值1：语句或语句块1;break;
+                                    case 取值2：语句或语句块2;break;
+                                    ......
+                                    case 取值n：语句或语句块n;break;
+                                    default: 语句或语句块n+1;break;
+                                    }//switch后的条件表达式结果一旦碰到与之匹配的case，就会执行该case后的语句，
+                                     //如果没有break语句，继续后面case下的代码。
+ （3）循环结构: 在现实生活中，经常需要重复且有规律地做一些事情。例如每天都要按时起床、吃早饭、上班或上学等等，周而复始。同理，程序里也经常
+               会出现重复的情况。例如重复让某一个变量乘以一个整数，直到100遍为止。
+               while循环语法结构如下: while（条件表达式）{
+                                      语句或语句块
+                                    }//如果一开始就检测到条件表达式的结果是false，则{}中的代码一次都不执行，即循环的次数是0。
+                                     //如果条件表达式的结果始终是true，称为死循环，应当避免这种情况。
+               do-while语句的语法结构如下所示: do{
+                                             语句或语句块
+                                             }while(条件表达式);//do-while语句的功能和while语句差不多，只不过它是在执行完
+                                              //第一次循环之后才检测条件表达式的值，这意味着包含在{}的代码至少要被执行一次。
+               for语句的语法结构如下所示: for(初始化表达式;循环条件表达式;循环后的操作表达式){
+                                        语句或语句块
+                                        }//由于JavaScript中不存在块级作用域，因此也可以在外部访问到在循环内部定义的变量
+                                        
+               break与continue: 只有循环条件表达式的值为false时，循环语句才能结束循环，
+                                如果想提前中断循环，可以在循环体语句块中添加break语句;
+                                在循环体中添加continue语句，就跳过本次循环要执行的剩余语句，然后开始下一次循环。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
