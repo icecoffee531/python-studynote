@@ -195,36 +195,79 @@
          <input type="submit" value="提交" />
        </form>
 
+11.浏览器对象模型（BOM）
+   浏览器对象模型(Browser Object Model): 一个完整的浏览器对象模型主要包括window、history、location和document等对象，
+                                       其中window对象是整个浏览器对象模型的顶层对象。
+   window对象: window对象处于对象模型的第一层，对于每个打开的窗口，系统都会自动将其定义为window对象。
+   window常用的属性: 
+       (1) document: 窗口中当前显示的文档对象
+       (2) history: History对象保存窗口最近加载的URL
+       (3) location: 当前窗口的URL
+       (4) status: 状态栏文本
+   window常见的方法：
+       (1) prompt: 显示可提示用户输入的对话框,它有两个参数,第一个参数提示用户应该输入的内容，第二个参数是文本框中显示的初始默认值，
+                   如果没有传递第二个参数，文本框中默认显示undefined。
+       (2) alert: 显示带有一个提示消息和一个确定按钮的警示框
+       (3) confirm: 显示一个带有提示信息、确定和取消按钮的确认框,用来确认用户针对某一个问题的答案，必须经过用户同意操作才能完成。
+       (4) close: 关闭浏览器
+       (5) open: 打开新的浏览器窗口,加载给定URL所指定的文档
+       (6) setTimeout: 在设定的毫秒数后调用函数或者计算表达式
+       (7) setInterval: 按照设定的周期（以毫秒计）来重复调用函数或表达式
+       //(6)(7)这两个方法的语法相同，都带有两个参数：一个是带引号的程序代码或函数的调用，另一个是以毫秒表示的时间，这个时间代表执行代码的延迟。
+       (8) clearInterval: 取消重复设置，与setInterval对应
+   利用窗口对象的open、close方法打开、关闭窗口:
+   open方法的返回值是打开的window的对象。Open方法的第一个参数是新窗口的URL，第二个参数是给新窗口的命名，第三个参数是设置新窗口的特征。
+   常见的特征如下:
+       (1) height、width: 窗口文档显示区的高度、宽度。单位为像素(px)
+       (2) left、top: 窗口的x坐标、y坐标。单位为像素(px)
+       (3) toolbar=yes|no|1|0: 是否显示浏览器的工具栏。黙认是yes
+       (4) scrollbars=yes|no|1|0: 是否显示滚动条。黙认是yes
+       (5) location=yes|no|1|0: 是否显示地址地段。黙认是yes
+       (6) status=yes|no|1|0: 是否添加状态栏。黙认是yes
+       (7) menubar=yes|no|1|0: 是否显示菜单栏。黙认是yes
+       (8) resizable=yes|no|1|0: 窗口是否可调节尺寸。黙认是yes
+       (9) titlebar=yes|no|1|0: 是否显示标题栏。黙认是yes
+       eg: open("adv.html"(打开的网页url),"adv"(网页名),"height=500,width=800,location=no,menubar=no,toolbar=0,resizable=no"(窗口特征));
+       
+   history对象: history对象保存了当前浏览器窗口打开文档的一个历史记录列表，使用history对象，可以将当前浏览器页面跳转到某个曾经打开过的页面。
+                获取histroy对象是通过window对象的history属性。
+   history对象有三个方法：
+       (1) back(): 后退一个页面，相当于浏览器后退按钮
+       (2) forward(): 前进一个页面，相对于浏览器前进按钮
+       (3) go(): 打开一个指定位置的页面
+       
+   location对象: location对象用于管理当前打开窗口的URL信息，相当于浏览器的地址栏。location对象通过window的location获取属性。
+   location对象的常用属性和方法如下表：
+       (1) href属性: 获取或设置网页地址
+       (2) reload方法: 重新加载当前页面，相对于浏览器的刷新按钮
+12.文档对象模型（DOM）
+   文档对象模型（Document Object Model）: DOM把html文档看成由元素、属性和文本组成的一棵树。
+   文档: document → 根节点: <html> → 元素: <head> → 元素: <title> → 文本: "文本标题"
+                                  → 元素: <body> → 元素: <a> → 属性: href
+                                                            → 文本: "我的链接"
+                                                 → 元素: <h1> → 文本: "我的标题"
+   可以把html文档中的每个成分看成一个节点，所以DOM的核心操作是查看节点、创建和增加节点以及删除和替换节点。
+   节点的特点如下：
+       1. 整个文档是一个文档节点；
+       2. 每个HTML标签是一个元素节点；
+       3. 包含在HTML元素中的文本是文本节点；
+       4. 每个HTML属性是一个属性节点；
+       5. 注释属于注释节点；
+       6. html文档中的节点彼此间都存在关系，如一张家族谱。
+    document对象:
+    整个html文档在DOM中是一个document对象，常见的属性如下表	：
+       (1) bgColor: 页面的背景颜色
+       (2) fgColor: 文本的前景颜色
+       (3) title: 页面标题
+    document对象的方法主要用于操作文档节点，控制其内容和外观,其常用的方法如下表:
+       (1) write: 用于向html文档中动态输入内容
+       (2) getElementById: 获取指定id的html页面元素对象 //几乎所有的元素对象都有innerHTML属性。
+                                                        innerHTML属性是一个字符串，用来设置或获取位于对象起始和结束标签之间的HTML内容。
+       (3) getElementsByTagName: 返回所有指定标签名的html页面元素对象,参数tagname为必选项，为字符串类型。返回值是指定标签名的对象的集合，
+                                 如果无符合条件的对象，则返回空数组。
+       (4) getElementsByName: 获取一组指定name的html页面元素对象,参数name为必选项，为字符串类型。
+                              返回值为数组对象，如果无符合条件的对象，则返回空数组。
+       (5) createElement: 创建代表某个html元素的对象
 
 
-
-
-  
-
-
-
-
-
-
-                                                           
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
+ 
