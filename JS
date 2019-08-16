@@ -268,6 +268,16 @@
        (4) getElementsByName: 获取一组指定name的html页面元素对象,参数name为必选项，为字符串类型。
                               返回值为数组对象，如果无符合条件的对象，则返回空数组。
        (5) createElement: 创建代表某个html元素的对象
+   节点信息: 如果编程时希望访问某个元素的父元素，但又不知道父元素的ID、name和tag，可以根据层次关系来查找节点，在DOM中，
+            每个节点都具有访问各节点的属性.
+   节点的属性如下:
+       (1) parentNode: 当前节点的父节点引用
+       (2) childNodes: 当前节点的所有子节点
+       (3) firstElementChild: 当前节点的第一个子节点
+       (4) lastElementChild: 当前节点的最后一个子节点
+       (5) previousSibling: 当前节点前一个兄弟节点
+       (6) nextSibling: 当前节点后一个兄弟节点
+   使用appendChild(node)将指定的节点追加到现有子节点的末尾。
+   使用removeChild(node)删除指定节点
 
 
- 
