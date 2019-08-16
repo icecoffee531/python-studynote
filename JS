@@ -413,6 +413,21 @@
     search方法利用使用正则表达式搜索，返回的是第一个匹配到的字符串在整个被搜索的字符串中的位置。如果没有找到匹配的子串则返回-1。
     如果是简单的搜索，可以用String对象的indexOf()方法。但对于较为复杂的模式匹配则需要使用search()方法。
     语法: index=stringObj.search(regExpObject);
+    eg: var str="This is a dog,that is a cat";
+        var regExp=/th[a-z]{2}/i;
+        var index=str.search(regExp);
+        document.write(index);
+    (3) replace方法
+    replace方法使用正则表达式模式对字符串执行搜索，并对搜索到的内容用指定的字符串替换，返回值为包含替换后的内容的字符串对象。
+    语法: var newStr= stringObj.replace(regExpObject);
+    eg: 要求删除用户输入中不必要的空格和“.”
+        function checkInfo(){
+          var str=document.getElementById("info").value;
+          var regExp=/[\. ]/g; 
+          document.getElementById("info").value=str.replace(regExp,""); 
+        }//在正则表达式中，“.”是元字符，匹配除换行符“\n”之外的任何单字符，若要匹配“.”字符本身，需要使用“\.”
+
+
 
 
 
