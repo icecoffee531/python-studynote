@@ -35,3 +35,10 @@
    属性绑定:v-bind:,缩写:
    实例的相关字段进行绑定外，还能将其他的属性字段进行绑定，最常见的是对于样式的绑定，即class和style属性
    绑定之后可以从script里面对body主体里面的东西的属性进行定义操作
+   
+   数组语法
+   我们可以把一个数组传给v-bind:class,以应用一个class列表。
+   
+   三目运算
+   可以运用三目运算，根据条件列表中的class。
+   <div class="box" :class="[isA ? classA:''，classB]">三日运算</div>
