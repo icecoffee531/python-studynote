@@ -41,4 +41,4 @@
    
    三目运算
    可以运用三目运算，根据条件列表中的class。
-   <div class="box" :class="[isA ? classA:''，classB]">三日运算</div>
+   <div class="box" :class="[isA ? classA:''，classB]">三目运算</div>
