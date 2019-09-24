@@ -42,3 +42,35 @@
    三目运算
    可以运用三目运算，根据条件列表中的class。
    <div class="box" :class="[isA ? classA:''，classB]">三目运算</div>
+
+   内联样式
+   可以在style里面连接上一个写的样式
+   eg:  <div id="demo" v-bind:style="styleObject">
+        <p :style="{color:rcolor,fontSize:fsize + 'px'}>哈哈哈</p>"
+        <p :style="[styleObject,A]">嘻嘻嘻</p>
+        </div>
+	<script>
+		var demo = new Vue({
+			el:'#demo',
+			data:{
+			   styleObject:{
+			   	color:red,
+			   fontsize:'24px'
+			   },
+			   A:{
+			   	display:'block',
+			   },
+			rcolor:red,
+			fsize:24,
+			},
+			})#哈哈哈的字样课通过rcolor,fsize自己调整
+5. 文本渲染方式:
+		v-text: 更新元素的innerText
+		v-html: 更新元素的innerHTML(可以识别html标签)
+		v-once: 静态插入(只执行一次,后面改变也不会更新)
+		v-pre:  原格式输出(插入的是啥就返回啥,要通过{{}}渲染)
+		v-cloak:指令保持在元素上直到关联实例结束编译(要通过{{}}渲染)
+
+6. 修饰符:
+		
+		
