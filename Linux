@@ -141,3 +141,48 @@ n 搜索指定字符串的下一个出现位置
 ZZ 快捷键,保存修改并退出
 :q! 不保存修改退出
 :wq! 保存修改并退出（文件所有者及root可使用）
+
+更新Ubuntu源：
+sudo apt-get update
+安装pip3：
+sudo apt install python3-pip
+
+安装mysql：
+sudo apt-get install mysql-server
+sudo apt-get install mysql-client
+sudo apt-get install libmysqlclient-dev
+安装成功后可以通过下面的命令测试是否安装成功：
+sudo netstat -tap | grep mysql
+没有netstat的话先执行下面的语句再执行上面的
+sudo apt install net-tools
+登录mysql：
+mysql -u用户名 -p密码
+修改mysql用户名和密码：
+show databases;
+use mysql;
+update user set authentication_string=PASSWORD("自定义密码")where user='root';
+update user set plugin="mysql_native_password";
+flush privileges;
+quit;
+修改完密码，需要重启mysql
+sudo /etc/init.d/mysql restart;
+远程登录配置：
+cd /etc/mysql/mysql.conf.d
+sudo vi mysqld.conf
+注释掉bind-address=127.0.0.1
+添加用户
+GRANT ALL PRIVILEGES ON *.* TO pythonuser@"%" IDENTIFIED BY "123456";
+flush privileges;
+需要重启mysql：
+
+安装flask：
+pip3 install flask
+查看flask是否安装成功：
+python
+from flask import Flask
+不报错就成功
+测试flask项目：
+导入flask项目然后
+python3 app.py runserver
+
+安装gunicorn
