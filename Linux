@@ -94,6 +94,107 @@ linux常用的命令
     -f 动态显示文件末尾内容（即文件实时变化，那么显示内容也会随之变化）
     注意：如果我们想结束加上 -f显示的tail命令，通过 Ctrl+C。
 
+Linux用户管理命令
+1. 帮助命令：man（manual；/usr/bin/man）
+   功能：获得帮助信息
+   语法：man 【命令或配置文件】
+
+2. 获得shell内置命令的帮助信息：help（shell内置命令）
+   功能：获得shell内置命令帮助信息
+   语法：help 【shell内置命令】
+   
+3. 简单查看命令的帮助信息：--help
+   语法：【命令】 --help
+   
+4. 添加新用户：useradd（/usr/sbin/useradd）
+   功能：添加新用户
+   语法：useradd 【用户名】
+   
+5. 设置用户密码：passwd（/usr/bin/passwd）
+   功能：修改用户的密码
+   语法：passwd 【用户名】
+
+6. 查看登录用户简单信息：who（/usr/bin/who）
+   功能：查看登录用户简单信息
+   语法：who
+   
+7. 查看登录用户详情信息：w（/usr/bin/w）
+   功能：查看登录用户详情信息
+   语法：w
+   
+Linux链接命令
+1. 生成链接文件命令：ln（link；/bin/link）
+   功能：生成链接文件
+   语法：ln -s 【源文件】 【目标文件】
+         -s 创建软连接
+         不加-s 创建硬链接
+         软连接是相当于快捷方式
+         硬链接相当于copy且同步更新
+         ls -i 软连接节点i不相同，硬链接相同
+
+Linux权限管理命令
+1. 更改文件或目录权限：chmod（change the permissions mode of a file；/bin/chmod）
+   功能：改变文件或目录权限
+   语法：chmod 【{ugoa}{+-=}{rwx}】【文件或目录】
+         【mode=421】 【文件或目录】 （r=4，w=2，x=1）
+         -R 递归修改
+
+2. 改变文件或目录所有者命令：chown（change file ownership；/bin/chown）
+   功能：改变文件或目录所有者
+   语法：chmod 【用户】 【文件或目录】
+
+3. 改变文件或目录所属组命令：chgrp（change file group ownership;/bin/chown）
+   功能：改变文件或目录所属组
+   语法：chgrp 【用户组】 【文件或目录】
+
+Linux解压和压缩命令
+压缩解压格式.gz：
+1. 压缩：gzip（GNU zip；/bin/gzip）（不保留原目录）
+   功能：压缩文件，压缩后格式为.gz
+   语法：gzip 【需要压缩的文件】
+
+2. 解压：gunzip（GNU unzip；/bin/gunzip）（不保留原目录）
+   功能：将格式为.gz的压缩文件解压
+   语法：gunzip 【压缩文件名】
+
+压缩解压格式.tar.gz：
+1. 压缩：tar（/bin/tar）（保留原目录）
+   功能：将文件压缩为.tar.gz格式
+   语法：tar 【-zcf】 【压缩后文件名】 【-C】 【目录】
+         -c 打包
+         -v 显示详细信息
+         -f 指定文件名
+         -z 打包同时压缩
+
+2. 解压：tar（/bin/tar）（保留原目录）
+   功能：将格式为.tar.gz的压缩文件解压
+   语法：tar 【-zxf】 【.tar.gz的压缩文件名】 【-C】 【目录】
+         -x 解包
+         -v 显示详细信息
+         -f 指定解压文件名
+         -z 解压缩
+
+压缩解压格式.zip：
+1. 压缩：zip（/usr/bin/zip）（保留原目录）
+   功能：将文件或者目录压缩为.zip格式
+   语法：zip 选项【-r】 【压缩后文件名】 【文件或目录】
+         -r 压缩目录
+
+2. 解压：unzip（/usr/bin/unzip）（保留原目录）
+   功能：将格式为.zip的压缩文件解压
+   语法：unzip 【.zip的压缩文件名】
+   
+压缩解压格式.bz2:
+1. 压缩：bzip（/usr/bin/bzip2）
+   功能：将文件压缩为.bz2格式
+   语法：bzip2 选项【-k】 【文件】
+         -k 产生压缩文件后保留文件
+
+2. 解压：bunzip2（/usr/bin/bunzip2）
+   功能：将格式为.bz2的压缩文件解压
+   语法：bunzip2 选项【-k】 【压缩文件】
+         -k 解压缩文件后保留原文件
+
 vi编辑器
 vim工作模式：命令模式（输入vi 【文件名】进入） 插入模式（在命令模式下输入i a o进入插入模式，按ESC回到命令模式） 编辑模式
 插入命令：
@@ -186,3 +287,28 @@ from flask import Flask
 python3 app.py runserver
 
 安装gunicorn
+安装虚拟环境：sudo apt-get install python3-venv（在项目目录中操作）
+创建虚拟环境：mkdir venv;python3 -m venv venv;source venv/bin/activate
+安装gunicorn：pip3 install gunicorn
+在flask项目中找到app.py
+gunicorn -w 4 -b 0.0.0.0:8000 app:app（app:app 前者代表启动程序文件名， 后者为实例化对象命名即 app = Flask(__name__)）
+-w 后面是线程数
+-b 后面是ip和端口
+退出虚拟环境：deactivate
+
+安装nginx
+Nginx用法：
+1. 反向代理：
+   是Nginx做的最多的一件事，是指以代理服务器来接受internet上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回
+   给internet上请求连接的客户端，此时代理服务器对外就表现为一个反向代理服务器。简单来说就是真实的服务器不能直接被外部网络访问，所以需要一
+   台代理服务器，而代理服务器能被外部网络访问的同时又跟真实服务器在同一个网络环境，当然也可能是同一台服务器，端口不同而已。
+2. 负载均衡：
+   是Nginx常用的一个功能，意思就是分摊到多个操作单元上进行执行，例如Web服务器、FTP服务器、企业关键应用服务器和其它关键任务服务器等，
+   从而共同完成工作任务。简单而言就是当有2台或以上服务器时，根据规则随机的将请求分发到指定的服务器上处理，负载均衡配置一般都需要同时
+   配置反向代理，通过反向代理跳转到负载均衡。而Nginx目前支持自带3种负载均衡策略，还有2种常用的第三方策略。
+3. http服务器：
+   Nginx本身也是一个静态资源的服务器，当只有静态资源的时候，就可以使用Nginx来做服务器，同时现在也很流行动静分离，就可以通过Nginx来实现。
+4. 正向代理：
+   意思是一个位于客户端和原始服务器(origin server)之间的服务器，为了从原始服务器取得内容，客户端向代理发送一个请求并指定目标(原始服务器)，
+   然后代理向原始服务器转交请求并将获得的内容返回给客户端。客户端才能使用正向代理。当你需要把你的服务器作为代理服务器的时候，可以用Nginx
+   来实现正向代理。
