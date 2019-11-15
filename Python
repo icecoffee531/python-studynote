@@ -106,7 +106,7 @@ for循环：
                                   c_list = zip(a_list,b_list)
                                   print(c_list) → 0x0000000003728908 #zip不是一个列表
                                   print(list(c_list)) → [(1,4),(2,5),(3,6)]
-    enumberate() #返回列表的索引值,元素 eg: for i,ele in enumberate(['a','b'])
+    enumerate() #返回列表的索引值,元素 eg: for i,ele in enumerate(['a','b'])
                                            print(i,ele) → (0,'a')
                                                           (1,'b')
     遍历列表的三种方式: a = ["a","b"]
@@ -114,7 +114,7 @@ for循环：
                           print(i)
                       for i in range(len(a)):
                           print(i,a[i])
-                      for i,ele in enumberate(a):
+                      for i,ele in enumerate(a):
                           print(i,ele)
                       
     列表推导式: #使用非常简洁的方式来快速生成满足特定需求的列表,代码具有很强的可读性;
